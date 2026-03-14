@@ -1,0 +1,27 @@
+@use '../../styles/base/' as *;
+@use '../../styles/abstracts/' as *;
+
+.modelMessageContainer {
+    
+    width: 80vw;
+    margin: 0 auto;
+    display: grid;
+    grid-template-rows: auto auto;
+    gap: 1rem;
+
+    @include respond-above('tablet') {
+        height: auto;
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 1rem;
+    }
+
+    .icon {
+        width: fit-content;
+        height: fit-content;
+
+        @include respond-above('tablet') {
+            
+        }
+    }
+}

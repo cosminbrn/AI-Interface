@@ -1,0 +1,7 @@
+@use '../../styles/base/' as *;
+@use '../../styles/abstracts/' as *;
+
+.chat {
+    background-color: $color-universal-background;
+    padding: 4rem 0;
+}

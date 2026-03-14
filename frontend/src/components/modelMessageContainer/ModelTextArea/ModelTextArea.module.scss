@@ -1,0 +1,23 @@
+@use '../../../styles/base/' as *;
+@use '../../../styles/abstracts/' as *;
+@use "sass:color";
+
+.modelText {
+    background: $color-chat-surface;
+
+    border: 1px solid color.change($color-border, $alpha: 0.2);
+    border-top-left-radius: 0;
+    border-top-right-radius: $radius-sm;
+    border-bottom-left-radius: $radius-sm;
+    border-bottom-right-radius: $radius-sm;
+
+    text-align: left;
+    max-width: 90%;
+    width: fit-content;
+
+    font-size: $font-size-md;
+
+    p {
+        margin: 2rem 2rem;
+    }
+}

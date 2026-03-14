@@ -1,0 +1,15 @@
+@use '../../styles/base/' as *;
+@use '../../styles/abstracts/' as *;
+
+.page {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: $navbar-height-mobile auto;
+    height: 100vh;
+    gap: 0;
+
+    @include respond-above('md') {
+        grid-template-columns: 1fr;
+        grid-template-rows: $navbar-height auto;
+    }
+}

@@ -1,7 +1,12 @@
 import { Header } from "../../layouts/header/Header"
+import Chat from "../../layouts/chat/Chat"
+import styles from './Page.module.scss';
 
 export default function Page() {
     return (
-        <Header />
+        <div className={styles.page}>
+            <Header />
+            <Chat />
+        </div>
     )
 }
