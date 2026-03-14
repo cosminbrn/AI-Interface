@@ -1,0 +1,26 @@
+@use '../../styles/abstracts/' as *;
+@use '../../styles/base/' as *;
+
+.navbar {
+    height: $navbar-height-mobile; 
+    background: $color-universal-background;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    
+    .burger {
+        justify-self: start;
+        padding-left: 1.3rem;
+        scale: 1.2;
+    }
+
+    .share {
+        justify-self: end;
+        padding-right: 1.3rem;
+        scale: 1.2;
+    }
+
+    @include respond-above('md') {
+        height: $navbar-height; 
+    }
+}
