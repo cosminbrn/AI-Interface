@@ -3,8 +3,8 @@
 
 .dropdown {
     background: $color-chat-surface;
-    border-radius: $radius-xsm;
-    height: 53%;
+    border-radius: $radius-xs;
+    height: 45%;
     border: 2px solid color.change($color-border, $alpha: 0.2);
     display: inline-grid;
     align-items: center;
