@@ -1,0 +1,42 @@
+@use '../abstracts' as *;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+html {
+  font-size: 14px;
+
+  @include respond-above('xs') {
+    font-size: 15px;
+  }
+
+  @include respond-above('sm') {
+    font-size: 16px;
+  }
+
+  @include respond-above('md') {
+    font-size: 17px;
+  }
+
+  @include respond-above('2xl') {
+    font-size: 19px;
+  }
+
+  @include respond-above('3xl') {
+    font-size: 20px;
+  }
+
+  @include respond-above('4xl') {
+    font-size: 22px;
+  }
+}
+
+body {
+  font-family: $font-primary;
+  font-size: $font-size-base;
+  font-weight: $font-weight-regular;
+  color: $color-text;
+  line-height: $line-height-base;
+}
+
+code {
+  font-family: $font-code;
+}
