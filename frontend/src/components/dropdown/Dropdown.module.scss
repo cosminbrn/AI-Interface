@@ -1,0 +1,25 @@
+@use '../../styles/abstracts/' as *;
+@use "sass:color";
+
+.dropdown {
+    background: $color-chat-surface;
+    border-radius: $radius-xsm;
+    height: 53%;
+    border: 2px solid color.change($color-border, $alpha: 0.2);
+    display: inline-grid;
+    align-items: center;
+    grid-template-columns: 1fr auto;
+    width: max-content;
+    min-width: to-rem(95px);
+    padding: 0 to-rem(8px) 0 to-rem(12px);
+    column-gap: to-rem(8px);
+    font-size: $font-size-base;
+}
+
+.text {
+    white-space: nowrap;
+}
+
+.arrow {
+    scale: 1.5;
+}
