@@ -1,0 +1,29 @@
+@use '../../../styles/base/' as *;
+@use '../../../styles/abstracts/' as *;
+@use "sass:color";
+
+.userText {
+    background: $color-user-surface;
+
+    border: 1px solid color.change($color-border, $alpha: 0.2);
+    border-top-left-radius: $radius-sm;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: $radius-sm;
+    border-bottom-right-radius: $radius-sm;
+
+    text-align: left;
+    max-width: 90%;
+    width: fit-content;
+    justify-self: end;
+
+    font-size: $font-size-md;
+
+    p {
+        margin: 2rem 2rem;
+    }
+
+    @include respond-above('tablet') {
+        order: 1;
+        flex: 1;
+    }
+}
