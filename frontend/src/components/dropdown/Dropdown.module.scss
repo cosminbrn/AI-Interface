@@ -14,12 +14,33 @@
     padding: 0 to-rem(8px) 0 to-rem(12px);
     column-gap: to-rem(8px);
     font-size: $font-size-base;
+
+    .text {
+        white-space: nowrap;
+    }
+
+    .arrow {
+        scale: 1.5;
+    }
+
+    .menu {
+        position: absolute;
+        background: $color-chat-surface;
+        border-radius: $radius-xs;
+        border: 2px solid color.change($color-border, $alpha: 0.2);
+        top: calc($navbar-height-mobile - 2vh);
+        display: flex;
+        flex-direction: column;
+        z-index: 10;
+
+        .menuItem {
+            padding: to-rem(8px);
+            cursor: pointer;
+
+            &:hover {
+                background: color.change($color-border, $alpha: 0.1);
+            }
+        }
+    }
 }
 
-.text {
-    white-space: nowrap;
-}
-
-.arrow {
-    scale: 1.5;
-}
