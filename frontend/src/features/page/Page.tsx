@@ -1,7 +1,7 @@
 import { Header } from "../../layouts/header/Header"
 import Chat from "../../layouts/chat/Chat"
 import styles from './Page.module.scss';
-import Input from "../../layouts/Input/Input";
+import Input from "../../layouts/input/Input";
 import Sidebar from "../../layouts/sidebar/Sidebar";
 import { useState, useEffect } from "react";
 
