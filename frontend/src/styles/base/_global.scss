@@ -6,6 +6,7 @@ body {
   padding: 0;
   overflow-x: hidden;
   background-color: $color-universal-background;
+  -webkit-tap-highlight-color: transparent;
 }
 
 #root {
