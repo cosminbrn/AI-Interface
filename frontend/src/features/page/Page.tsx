@@ -41,7 +41,7 @@ export default function Page() {
         setTimeout(() => {
             const aiResponse: Message = {
                 id: (Date.now()).toString(),
-                text: 'Mock Respone from yours truly NextGen',
+                text: `Here is a mock response from yours truly\n\nI can format text to be **bold**, *italic*, or include [links](https://google.com). \n\nHere is a code block:\n\`\`\`javascript\nconsole.log("Hello NexGen!");\n\`\`\``,
                 sender: 'ai',
                 timestamp: new Date(),
             };
