@@ -1,6 +1,6 @@
 import styles from './UserMessageContainer.module.scss';
 import UserTextArea from './UserTextArea/UserTextArea';
-import userIcon from '../../assets/userIcon.svg';
+import userIcon from '../../assets/icons/userIcon.svg';
 
 export default function UserMessageContainer () {
     return (

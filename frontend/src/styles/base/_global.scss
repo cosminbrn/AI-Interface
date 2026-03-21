@@ -5,6 +5,7 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  background-color: $color-universal-background;
 }
 
 #root {
@@ -19,5 +20,7 @@ input {
 
 // Scrollbar defaults
 body {
-  @include custom-scrollbar;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
