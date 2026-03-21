@@ -4,20 +4,25 @@ import userAvatar from '../../assets/icons/userIcon.svg';
 import closeIcon from '../../assets/icons/closeIcon.svg';
 import plusIcon from '../../assets/icons/paperclipIcon.svg';
 import gearIcon from '../../assets/icons/gearIcon.svg';
+import type { ChatSession } from '../../features/page/Page';
 
 interface SidebarProps {
     isOpen: boolean;
     onClose: () => void;
+    sessions: ChatSession[];
+    currentSessionId: string;
+    onSessionSelect: (sessionId: string) => void;
+    onNewChat: () => void;
 }
 
-export default function Sidebar({ isOpen, onClose }: SidebarProps) {
+export default function Sidebar({ isOpen, onClose, sessions, currentSessionId, onSessionSelect, onNewChat }: SidebarProps) {
     return (
         <>
             {isOpen && <div className={styles.overlay} onClick={onClose}></div>}
 
             <aside className={`${styles.sidebar} ${isOpen ? styles.sidebarOpen : ''}`}>
                 <div className={styles.topSection}>
-                    <div className={styles.newChatButton}>
+                    <div className={styles.newChatButton} onClick={onNewChat}>
                         <div className={styles.text}>New Chat</div>
                     </div>
                     <div className={styles.closeBtn} onClick={onClose}>
@@ -28,21 +33,16 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
                 <div className={styles.historyList}>
                     <div className={styles.historyGroup}>
                         <div className={styles.historyTitle}>Today</div>
-                        <div className={styles.historyItem}>
-                            <img src={messageIcon} alt="" />
-                            <div className={styles.itemText}>Dark matter proof</div>
-                        </div>
-                        <div className={styles.historyItem}>
-                            <img src={messageIcon} alt="" />
-                            <div className={styles.itemText}>Schrodinger's cat</div>
-                        </div>
-                    </div>
-                    <div className={styles.historyGroup}>
-                        <div className={styles.historyTitle}>Yesterday</div>
-                        <div className={styles.historyItem}>
-                            <img src={messageIcon} alt="" />
-                            <div className={styles.itemText}>Previous conversation</div>
-                        </div>
+                        {sessions.map((session) => (
+                            <div
+                                key={session.id}
+                                className={`${styles.historyItem} ${session.id === currentSessionId ? styles.active : ''}`}
+                                onClick={() => onSessionSelect(session.id)}
+                            >
+                                <img src={messageIcon} alt="" />
+                                <div className={styles.itemText}>{session.title}</div>
+                            </div>
+                        ))}
                     </div>
                 </div>
 
