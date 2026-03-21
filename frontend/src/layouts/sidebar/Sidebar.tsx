@@ -45,6 +45,14 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
                         </div>
                     </div>
                 </div>
+
+                <div className={styles.bottomSection}>
+                    <div className={styles.userProfile}>
+                        <img src={userAvatar} alt="User" className={styles.avatar} />
+                        <div className={styles.userName}>Cosmin-George Baroana</div>
+                        <img src={gearIcon} alt="Settings" className={styles.optionsIcon} />
+                    </div>
+                </div>
             </aside>
         </>
     );

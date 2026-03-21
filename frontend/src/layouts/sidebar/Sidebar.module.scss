@@ -90,4 +90,39 @@
             }
         }
     }
+
+    .bottomSection {
+        padding: 1rem;
+        border-top: 1px solid;
+        border-color: color.change($color-border, $alpha: 0.2);
+
+        .userProfile {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            width: 100%;
+            padding: 0.5rem;
+            background: transparent;
+
+            .avatar {
+                width: 2rem;
+                height: 2rem;
+                border-radius: 50%;
+                cursor: pointer;
+            }
+
+            .userName {
+                font-weight: 500;
+                flex: 1;
+                text-align: left;
+            }
+
+            .optionsIcon {
+                width: 1.25rem;
+                height: 1.25rem;
+                opacity: 0.5;
+                cursor: pointer;
+            }
+        }
+    }
 }
