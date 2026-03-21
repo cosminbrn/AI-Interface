@@ -1,5 +1,6 @@
 @use '../../styles/abstracts/' as *;
 @use '../../styles/base/' as *;
+@use "sass:color";
 
 .navbar {
     height: $navbar-height-mobile; 
@@ -13,16 +14,22 @@
 
     .burger {
         justify-self: start;
-        padding-left: 1.3rem;
+        margin-left: 0.8rem;
+        padding: 0.5rem;
         scale: 1.2;
         cursor: pointer;
+
+        @include hover-circle-effect($color-border);
     }
 
     .share {
         justify-self: end;
-        padding-right: 1.3rem;
+        margin-right: 0.8rem;
+        padding: 0.5rem;
         scale: 1.2;
         cursor: pointer;
+
+        @include hover-circle-effect($color-border);
     }
 
     @include respond-above('md') {

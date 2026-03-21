@@ -9,8 +9,7 @@
     right: 0;
     position: sticky;
     padding: 0rem 1rem 2rem;
-    margin-top: 2.5rem;
-    box-shadow: 0 -8px 24px 24px rgba(24, 25, 26, 0.6);
+    box-shadow: 0 -8px 24px 24px rgba(23, 27, 33, 0.8);
 
     .inputContainer {
         padding: 1rem 1rem 0rem;
@@ -28,13 +27,14 @@
             border-radius: 50%;
             background-color: $color-chat-surface;
             cursor: pointer;
+
+            @include hover-circle-effect($color-border);
         }
 
         .textarea {
             flex-grow: 1;
             background-color: transparent;
             border: none;
-            color: #fff;
             font-size: 1rem;
             margin: 0.5rem 0.5rem 0;
             resize: none;
@@ -47,7 +47,7 @@
             }
 
             &::placeholder {
-                color: #8E8E8E;
+                color: color.change($color-border, $alpha: 0.5);
                 align-self: center;
                 align-items: center;
                 justify-content: center;
@@ -63,6 +63,8 @@
             border-radius: 50%;
             background-color: $color-chat-surface;
             cursor: pointer;
+
+            @include hover-circle-effect($color-border);
         }
     }
 }
