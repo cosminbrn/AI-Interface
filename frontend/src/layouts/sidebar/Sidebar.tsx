@@ -1,5 +1,5 @@
 import styles from './Sidebar.module.scss';
-import messageIcon from '../../assets/icons/chatIcon.svg'; 
+import messageIcon from '../../assets/icons/clockIcon.svg'; 
 import userAvatar from '../../assets/icons/userIcon.svg'; 
 import closeIcon from '../../assets/icons/closeIcon.svg';
 import plusIcon from '../../assets/icons/paperclipIcon.svg';
@@ -22,6 +22,27 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
                     </div>
                     <div className={styles.closeBtn} onClick={onClose}>
                         <img src={closeIcon} alt="Close Menu" />
+                    </div>
+                </div>
+
+                <div className={styles.historyList}>
+                    <div className={styles.historyGroup}>
+                        <div className={styles.historyTitle}>Today</div>
+                        <div className={styles.historyItem}>
+                            <img src={messageIcon} alt="" />
+                            <div className={styles.itemText}>Dark matter proof</div>
+                        </div>
+                        <div className={styles.historyItem}>
+                            <img src={messageIcon} alt="" />
+                            <div className={styles.itemText}>Schrodinger's cat</div>
+                        </div>
+                    </div>
+                    <div className={styles.historyGroup}>
+                        <div className={styles.historyTitle}>Yesterday</div>
+                        <div className={styles.historyItem}>
+                            <img src={messageIcon} alt="" />
+                            <div className={styles.itemText}>Previous conversation</div>
+                        </div>
                     </div>
                 </div>
             </aside>
