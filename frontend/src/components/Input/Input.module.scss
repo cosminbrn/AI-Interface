@@ -1,0 +1,65 @@
+@use '../../styles/base/' as *;
+@use '../../styles/abstracts/' as *;
+@use "sass:color";
+
+.backgroundContainer {
+    background-color: $color-universal-background;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: sticky;
+    padding: 0rem 1rem 2rem;
+    margin-top: 2.5rem;
+    box-shadow: 0 -8px 24px 24px rgba(24, 25, 26, 0.6);
+
+    .inputContainer {
+        padding: 1rem 1rem 0.5rem;
+        display: flex;
+        border: 1px solid color.change($color-border, $alpha: 0.2);
+        border-radius: $radius-md;
+        background-color: $color-chat-surface;
+        
+        .attach {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            background-color: $color-chat-surface;
+            cursor: pointer;
+        }
+
+        .textarea {
+            flex-grow: 1;
+            background-color: transparent;
+            border: none;
+            color: #fff;
+            font-size: 1rem;
+            margin: 0 0.5rem;
+            resize: none;
+            display: flex;
+            
+
+            &::placeholder {
+                color: #8E8E8E;
+                align-self: center;
+                align-items: center;
+                justify-content: center;
+                padding-top: 0.5em;  
+            }
+        }
+
+        .send {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            background-color: $color-chat-surface;
+            cursor: pointer;
+        }
+    }
+}
+
