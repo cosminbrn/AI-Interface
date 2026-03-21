@@ -2,7 +2,7 @@
 @use '../../styles/abstracts/' as *;
 
 .modelMessageContainer {
-    width: 80vw;
+    width: 100%;
     margin: 0 auto;
     display: grid;
     grid-template-rows: auto auto;

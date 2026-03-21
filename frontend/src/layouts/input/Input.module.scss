@@ -17,7 +17,9 @@
         border: 1px solid color.change($color-border, $alpha: 0.2);
         border-radius: $radius-md;
         background-color: $color-chat-surface;
-        
+        max-width: $chat-max-width;
+        margin: 0 auto;
+
         .attach {
             display: flex;
             align-items: center;

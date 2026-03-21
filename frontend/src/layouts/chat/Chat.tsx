@@ -18,17 +18,19 @@ export default function Chat({ messages, isTyping }: ChatProps) {
 
     return (
         <div className={styles.chat}>
-            {messages.map((message) => {
-                if (message.sender === 'user') {
-                    return <UserMessageContainer key={message.id} text={message.text} timestamp={message.timestamp} />;
-                } else {
-                    return <ModelMessageContainer key={message.id} text={message.text} timestamp={message.timestamp}/>;
-                }
-            })}
-            {isTyping && (
-                <div className={styles.typingIndicator}>NextGen is typing...</div>
-            )}
-            <div id="invisible" ref={messagesEndRef} />
+            <div className={styles.limitator}>
+                {messages.map((message) => {
+                    if (message.sender === 'user') {
+                        return <UserMessageContainer key={message.id} text={message.text} timestamp={message.timestamp} />;
+                    } else {
+                        return <ModelMessageContainer key={message.id} text={message.text} timestamp={message.timestamp}/>;
+                    }
+                })}
+                {isTyping && (
+                    <div className={styles.typingIndicator}>NextGen is typing...</div>
+                )}
+                <div id="invisible" ref={messagesEndRef} />
+            </div>
         </div>
     )
 }

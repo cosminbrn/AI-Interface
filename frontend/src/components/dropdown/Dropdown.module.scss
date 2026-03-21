@@ -5,6 +5,7 @@
     background: $color-chat-surface;
     border-radius: $radius-xs;
     height: 70%;
+    max-height: 50px;
     border: 2px solid color.change($color-border, $alpha: 0.2);
     display: inline-grid;
     align-items: center;
@@ -14,6 +15,7 @@
     padding: to-rem(2px) to-rem(8px) 0 to-rem(12px);
     column-gap: to-rem(8px);
     font-size: $font-size-base;
+    cursor: pointer;
 
     .text {
         white-space: nowrap;

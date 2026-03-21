@@ -3,18 +3,49 @@
 
 .chat {
     background-color: $color-universal-background;
-    padding-top: 4rem;
+    padding-top: 0.5rem;
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
     overflow-y: auto;
+    flex-grow: auto;
 
-    .typingIndicator {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        font-size: $font-size-md;
-        padding-left: 2.75rem;
-        opacity: 0.5;
+    @include respond-above('laptop') {
+        padding-top: 0rem;
     }
+
+    .limitator {
+        width: 100%;
+        max-width: $chat-max-width;
+        padding: 0 2rem;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        overflow-x: hidden;
+
+        @include respond-above('ml') {
+            padding: 0 4rem;
+        }
+
+        @include respond-above('tablet') {
+            padding: 0 5rem;
+        }
+
+         --- IGNORE ---
+         .message {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .typingIndicator {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: $font-size-md;
+            padding-left: 2.75rem;
+            opacity: 0.5;
+        }
+    }
+    
 }
