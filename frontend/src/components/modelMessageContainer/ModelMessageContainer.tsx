@@ -5,7 +5,6 @@ import copyIcon from '../../assets/icons/copyIcon.svg';
 import refreshIcon from '../../assets/icons/refreshIcon.svg';
 import thumbsUpIcon from '../../assets/icons/thumbsUpIcon.svg';
 import thumbsDownIcon from '../../assets/icons/thumbsDownIcon.svg';
-import { useState } from 'react';
 
 interface ModelMessageContainerProps {
     text: string;
