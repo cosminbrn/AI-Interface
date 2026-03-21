@@ -5,9 +5,10 @@ import type { Message } from '../../features/page/Page';
 
 interface ChatProps {
     messages: Message[];
+    isTyping: boolean;
 }
 
-export default function Chat({ messages }: ChatProps) {
+export default function Chat({ messages, isTyping }: ChatProps) {
     return (
         <div className={styles.chat}>
             {messages.map((message) => {
@@ -17,6 +18,9 @@ export default function Chat({ messages }: ChatProps) {
                     return <ModelMessageContainer key={message.id} text={message.text} />;
                 }
             })}
+            {isTyping && (
+                <div className={styles.typingIndicator}>NextGen is typing...</div>
+            )}
         </div>
     )
 }

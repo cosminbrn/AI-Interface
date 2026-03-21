@@ -8,4 +8,13 @@
     flex-direction: column;
     gap: 2rem;
     overflow-y: auto;
+
+    .typingIndicator {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: $font-size-md;
+        padding-left: 2.75rem;
+        opacity: 0.5;
+    }
 }
