@@ -76,20 +76,61 @@ export default function Page() {
 
         setIsTyping(true);
 
+        const appendWordToMessage = (sessionId: string, messageId: string, word: string) => {
+            setSessions(prevSessions => prevSessions.map(session => {
+                if (session.id !== sessionId) return session; 
+
+                return {...session, messages: session.messages.map(msg => {
+                        if (msg.id !== messageId) return msg; 
+                        return { ...msg, text: msg.text ? `${msg.text} ${word}` : word };
+                    })
+                };
+            }));
+        };
+
         setTimeout(() => {
-            const aiResponse: Message = {
-                id: (Date.now()).toString(),
-                text: `Here is a mock response from yours truly\n\nI can format text to be **bold**, *italic*, or include [links](https://google.com). \n\nHere is a code block:\n\`\`\`javascript\nconsole.log("Hello NexGen!");\n\`\`\``,
+            setIsTyping(false);
+            const id = Date.now().toString();
+            const fullResponse = `Here is a mock response from yours truly\n\nI can format text to be **bold**, *italic*, or include [links](https://google.com). \n\nHere is a code block:\n\`\`\`javascript\nconsole.log("Hello NexGen!");\n\`\`\``;
+            const words = fullResponse.split(' ');
+
+            const isOops = Math.random() < 0.25;
+
+            if (isOops) {
+                const error: Message = {
+                    id: id,
+                    text: '**Connection Error:** Sorry, I encountered a network issue while processing your request. Please try sending your message again.',
+                    sender: 'ai',
+                    timestamp: new Date(),
+                };
+
+                setSessions(prevSessions => prevSessions.map(session =>
+                    session.id === currentSessionId ? { ...session, messages: [...session.messages, error] } : session
+                ));
+                return;
+            }
+
+            const empty: Message = {
+                id: id,
+                text: '',
                 sender: 'ai',
                 timestamp: new Date(),
             };
 
-            setSessions(prevSessions => prevSessions.map(session => 
-                session.id === currentSessionId 
-                    ? { ...session, messages: [...session.messages, aiResponse] }
-                    : session
+            setSessions(prevSessions => prevSessions.map(session =>
+                session.id === currentSessionId ? { ...session, messages: [...session.messages, empty] } : session
             ));
-            setIsTyping(false);
+
+            let currentIndex = 0;
+            const streamInterval = setInterval(() => {
+                if (currentIndex >= words.length) {
+                    clearInterval(streamInterval); 
+                    return;
+                }
+
+                appendWordToMessage(currentSessionId, id, words[currentIndex]);
+                currentIndex++;
+            }, 79);
         }, 1500);
     };
 
