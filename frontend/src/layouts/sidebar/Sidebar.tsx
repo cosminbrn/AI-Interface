@@ -76,7 +76,7 @@ export default function Sidebar({ isOpen, onClose, sessions, currentSessionId, o
                                 )}
 
                                 <div 
-                                    className={styles.editIcon} 
+                                    className={`${styles.editIcon} ${editingId === session.id ? styles.editInputActive : ''}`}
                                     onClick={(e) => startEditing(session, e)}
                                     title="Rename chat"
                                 >

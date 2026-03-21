@@ -33,6 +33,7 @@
         align-items: center;
         padding: 1rem;
         gap: 0.5rem;
+        margin: 2rem 0rem 1rem;
 
         .newChatButton {
             display: flex;
@@ -101,6 +102,10 @@
                     }
                 }
 
+                .editInputActive {
+                    animation: slightRotate 1s ease-in-out;
+                }
+
                 .editIcon {
                     margin: auto;
                     margin-right: 0;
@@ -154,5 +159,15 @@
                 @include hover-circle-effect($color-border);
             }
         }
+    }
+}
+
+@keyframes slightRotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(180deg);
     }
 }
