@@ -5,14 +5,15 @@ import { useState } from 'react';
 
 interface InputProps {
     onSendMessage: (text: string) => void;
+    isTyping: boolean;
 }
 
-export default function Input({ onSendMessage }: InputProps) {
+export default function Input({ onSendMessage, isTyping }: InputProps) {
 
     const [inputValue, setInputValue] = useState('');
 
     const handleSend = () => {
-        if (inputValue.trim() === '') return;
+        if (inputValue.trim() === '' || isTyping) return;
 
         onSendMessage(inputValue);
         setInputValue('');
@@ -38,7 +39,12 @@ export default function Input({ onSendMessage }: InputProps) {
                     onChange={(e) => setInputValue(e.target.value)}
                     onKeyDown={handleKeyDown}
                 />
-                <div className={styles.send}>
+                <div className={styles.send} onClick={handleSend} role="button" tabIndex={0} onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        handleSend();
+                    }
+                }}>
                     <img src={Send} alt="send icon" />
                 </div>
             </div>
