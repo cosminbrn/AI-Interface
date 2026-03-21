@@ -33,7 +33,8 @@ export default function Page() {
             sender: 'user',
             timestamp: new Date(),
         }
-        setMessages([...messages, newMessage]);
+        setMessages((prev) => [...prev, newMessage]);
+        // setMessages([...messages, newMessage]);
 
         setIsTyping(true);
 
@@ -45,7 +46,7 @@ export default function Page() {
                 timestamp: new Date(),
             };
 
-            setMessages([...messages, aiResponse]);
+            setMessages((prev) => [...prev, aiResponse]);
             setIsTyping(false);
         }, 1500);
     };
