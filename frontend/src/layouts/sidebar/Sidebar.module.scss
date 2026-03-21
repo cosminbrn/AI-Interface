@@ -89,6 +89,13 @@
                 border-radius: 0.5rem;
                 cursor: pointer;
                 text-align: left;
+
+                &:hover {
+                    background: color.change($color-border, $alpha: 0.1);
+                }
+            }
+            .active {
+                background: color.change($color-border, $alpha: 0.2);
             }
         }
     }
