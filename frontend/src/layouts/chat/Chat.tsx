@@ -2,6 +2,7 @@ import styles from './Chat.module.scss';
 import ModelMessageContainer from '../../components/modelMessageContainer/ModelMessageContainer';
 import UserMessageContainer from '../../components/userMessageContainer/UserMessageContainer';
 import type { Message } from '../../features/page/Page';
+import { useEffect, useRef } from 'react';
 
 interface ChatProps {
     messages: Message[];
@@ -9,6 +10,12 @@ interface ChatProps {
 }
 
 export default function Chat({ messages, isTyping }: ChatProps) {
+    const messagesEndRef = useRef<HTMLDivElement>(null);
+    
+    useEffect(() => {
+        messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    }, [messages, isTyping]);
+
     return (
         <div className={styles.chat}>
             {messages.map((message) => {
@@ -21,6 +28,7 @@ export default function Chat({ messages, isTyping }: ChatProps) {
             {isTyping && (
                 <div className={styles.typingIndicator}>NextGen is typing...</div>
             )}
+            <div id="invisible" ref={messagesEndRef} />
         </div>
     )
 }
