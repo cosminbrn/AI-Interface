@@ -3,7 +3,8 @@
 @use "sass:color";
 
 .navbar {
-    height: $navbar-height-mobile; 
+    height: $navbar-height-mobile;
+    min-height: 4rem;
     background: $color-universal-background;
     display: grid;
     grid-template-columns: 1fr auto 1fr;

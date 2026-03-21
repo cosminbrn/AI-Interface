@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 export default function Dropdown() {
     const [isOpen, setOpen] = useState(false);
-    const [selectedOption, setSelectedOption] = useState('GPT-4o');
+    const [selectedOption, setSelectedOption] = useState('NewGen AI 4.0');
 
     const toggleDropdown = () => {
         setOpen(!isOpen);
@@ -23,8 +23,8 @@ export default function Dropdown() {
                 <img src={arrow} alt="Dropdown Arrow" className={styles.arrow} onClick={toggleDropdown} />
             {isOpen && (
                 <div className={styles.menu}>
-                    <div className={styles.menuItem} onClick={() => handleOptionClick('GPT-4o')}>GPT-4o</div>
-                    <div className={styles.menuItem} onClick={() => handleOptionClick('GPT-3.5')}>GPT-3.5</div>
+                    <div className={styles.menuItem} onClick={() => handleOptionClick('NewGen AI 4.0')}>NexGen AI 4.0</div>
+                    <div className={styles.menuItem} onClick={() => handleOptionClick('NewGen AI 3.5')}>NexGen AI 3.5</div>
                 </div>
             )}
         </div>
