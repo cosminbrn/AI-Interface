@@ -4,7 +4,10 @@ import userAvatar from '../../assets/icons/userIcon.svg';
 import closeIcon from '../../assets/icons/closeIcon.svg';
 import gearIcon from '../../assets/icons/gearIcon.svg';
 import type { ChatSession } from '../../features/page/Page';
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
+import Button from '../../components/button/Button';
+import { useGSAP } from "@gsap/react"
+import gsap from "gsap"
 
 interface SidebarProps {
     isOpen: boolean;
@@ -26,6 +29,22 @@ export default function Sidebar({ isOpen, onClose, sessions, currentSessionId, o
         setEditTitle(session.title);
     };
 
+    const sidebarRef = useRef<HTMLElement>(null);
+    const overlayRef = useRef<HTMLDivElement>(null);
+    useGSAP(() => {
+        gsap.to(sidebarRef.current, {
+            x: isOpen ? '0%' : '-100%',
+            duration: 0.5,
+            ease: 'power3.inOut'
+        })
+
+        gsap.to(overlayRef.current, {
+            autoAlpha: isOpen ? 1 : 0,
+            duration: 0.5,
+            ease: 'power3.inOut'
+        })
+    }, [isOpen])
+
     const handleRenameSubmit = (id: string) => {
         if (editingId === id) {
             onRenameChat(id, editTitle);
@@ -42,13 +61,11 @@ export default function Sidebar({ isOpen, onClose, sessions, currentSessionId, o
     }
     return (
         <>
-            {isOpen && <div className={styles.overlay} onClick={onClose}></div>}
+            <div ref={overlayRef} className={styles.overlay} onClick={onClose}></div>
 
-            <aside className={`${styles.sidebar} ${isOpen ? styles.sidebarOpen : ''}`}>
+            <aside ref={sidebarRef} className={`${styles.sidebar} ${isOpen ? styles.sidebarOpen : ''}`}>
                 <div className={styles.topSection}>
-                    <div className={styles.newChatButton} onClick={onNewChat}>
-                        <div className={styles.text}>New Chat</div>
-                    </div>
+                    <Button onNewChat={onNewChat}></Button>
                     <div className={styles.closeBtn} onClick={onClose}>
                         <img src={closeIcon} alt="Close Menu" />
                     </div>
