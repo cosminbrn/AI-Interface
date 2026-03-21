@@ -19,9 +19,22 @@ input {
   background: transparent;
 }
 
-// Scrollbar defaults
 body {
   &::-webkit-scrollbar {
     display: none;
+  }
+
+  ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+      background: transparent;
+  }
+
+  * {
+      scrollbar-width: thin;
+      scrollbar-color: rgba(136, 136, 136, 0.3) transparent;
   }
 }
