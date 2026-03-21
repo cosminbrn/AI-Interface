@@ -15,12 +15,14 @@
         justify-self: start;
         padding-left: 1.3rem;
         scale: 1.2;
+        cursor: pointer;
     }
 
     .share {
         justify-self: end;
         padding-right: 1.3rem;
         scale: 1.2;
+        cursor: pointer;
     }
 
     @include respond-above('md') {

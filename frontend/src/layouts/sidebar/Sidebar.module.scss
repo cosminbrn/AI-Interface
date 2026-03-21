@@ -1,0 +1,36 @@
+@use '../../styles/base/' as *;
+@use '../../styles/abstracts/' as *;
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: 300px;
+    height: 100vh;
+    background-color: $onyx-black;
+    z-index: 1000;
+    transition: left 0.3s ease-in-out;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.15);
+    padding: 1rem;
+    
+    &.sidebarOpen {
+        left: 0;
+    }
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    cursor: pointer;
+}
+
+.sidebarContent {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
