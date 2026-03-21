@@ -93,6 +93,25 @@
                 &:hover {
                     background: color.change($color-border, $alpha: 0.1);
                 }
+
+                .editInput {
+                    border: none;
+                    &:focus {
+                        outline: none;
+                    }
+                }
+
+                .editIcon {
+                    margin: auto;
+                    margin-right: 0;
+                    opacity: 0.5;
+                }
+
+                .itemText {
+                    max-width: 80%;
+                    white-space: nowrap;
+                    overflow: hidden;
+                }
             }
             .active {
                 background: color.change($color-border, $alpha: 0.2);

@@ -134,6 +134,15 @@ export default function Page() {
         }, 1500);
     };
 
+    const handleRenameChat = (sessionId: string, newTitle: string) => {
+        setSessions(prevSessions => prevSessions.map(session => {
+            if (session.id === sessionId) {
+                return { ...session, title: newTitle };
+            }
+            return session;
+        }));
+    };
+
     return (
         <div className={styles.page}>
             <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)}
@@ -141,6 +150,7 @@ export default function Page() {
                 currentSessionId={currentSessionId}
                 onSessionSelect={setCurrentSessionId}
                 onNewChat={handleNewChat}
+                onRenameChat={handleRenameChat}
             />
             <Header onMenuClick={() => setIsSidebarOpen(true)} />
             <Chat messages={messages} isTyping={isTyping} />
