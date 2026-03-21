@@ -1,6 +1,7 @@
 import styles from './Input.module.scss';
 import paperclip from '../../assets/icons/paperclipIcon.svg';
 import Send from '../../assets/icons/sendIcon.svg';
+import Loading from '../../assets/icons/loadingIcon.svg';
 import { useState } from 'react';
 
 interface InputProps {
@@ -45,7 +46,7 @@ export default function Input({ onSendMessage, isTyping }: InputProps) {
                         handleSend();
                     }
                 }}>
-                    <img src={Send} alt="send icon" />
+                    <img src={isTyping ? Loading : Send} alt="send icon" />
                 </div>
             </div>
         </div>
