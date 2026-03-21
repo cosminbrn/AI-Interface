@@ -20,9 +20,9 @@ export default function Chat({ messages, isTyping }: ChatProps) {
         <div className={styles.chat}>
             {messages.map((message) => {
                 if (message.sender === 'user') {
-                    return <UserMessageContainer key={message.id} text={message.text} />;
+                    return <UserMessageContainer key={message.id} text={message.text} timestamp={message.timestamp} />;
                 } else {
-                    return <ModelMessageContainer key={message.id} text={message.text} />;
+                    return <ModelMessageContainer key={message.id} text={message.text} timestamp={message.timestamp}/>;
                 }
             })}
             {isTyping && (

@@ -4,15 +4,23 @@ import userIcon from '../../assets/icons/userIcon.svg';
 
 interface UserMessageContainerProps {
     text: string;
+    timestamp: Date | string;
 }
 
-export default function UserMessageContainer ({ text }: UserMessageContainerProps) {
+export default function UserMessageContainer ({ text, timestamp }: UserMessageContainerProps) {
+
+    const timeString = new Date(timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
     return (
         <div className={styles.userMessageContainer}>
             <div className={styles.icon}>
                 <img src={userIcon} alt="User Icon" />
             </div>
-            <UserTextArea text={text} />
+            
+            <div className={styles.content}>
+                <UserTextArea text={text} />
+                <div className={styles.timestamp}>{timeString}</div>
+            </div>
         </div>
     )
 }

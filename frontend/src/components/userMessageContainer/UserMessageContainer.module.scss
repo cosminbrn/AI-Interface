@@ -25,4 +25,19 @@
             flex-shrink: 1;
         }
     }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        width: 100%;
+        height: fit-content;
+
+        .timestamp {
+            font-size: 0.75rem;
+            color: #888;
+            margin-top: 0.35rem;
+            padding-right: 0.25rem;
+        }
+    }
 }
