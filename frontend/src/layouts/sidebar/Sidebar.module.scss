@@ -87,14 +87,14 @@
                     }
                 }
 
-                .editInputActive {
-                    animation: slightRotate 1s ease-in-out;
-                }
-
                 .editIcon {
                     margin: auto;
                     margin-right: 0;
                     opacity: 0.5;
+
+                    img {
+                        aspect-ratio: 1/1;
+                    }
                 }
 
                 .itemText {
@@ -144,15 +144,5 @@
                 @include hover-circle-effect($color-border);
             }
         }
-    }
-}
-
-@keyframes slightRotate {
-    0% {
-        transform: rotate(0deg);
-    }
-
-    100% {
-        transform: rotate(180deg);
     }
 }

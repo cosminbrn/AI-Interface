@@ -27,6 +27,16 @@ export default function Sidebar({ isOpen, onClose, sessions, currentSessionId, o
         e.stopPropagation();
         setEditingId(session.id);
         setEditTitle(session.title);
+
+        gsap.to(e.currentTarget, {
+            rotate: 180,
+            duration: 0.25,
+            ease: 'power3.inOut',
+            yoyo: true,
+            repeat: 1,
+            y: 0,
+            x: 0,
+        })
     };
 
     const sidebarRef = useRef<HTMLElement>(null);
@@ -100,11 +110,7 @@ export default function Sidebar({ isOpen, onClose, sessions, currentSessionId, o
                                     <div className={styles.itemText}>{session.title}</div>
                                 )}
 
-                                <div 
-                                    className={`${styles.editIcon} ${editingId === session.id ? styles.editInputActive : ''}`}
-                                    onClick={(e) => startEditing(session, e)}
-                                    title="Rename chat"
-                                >
+                                <div className={styles.editIcon} onClick={(e) => startEditing(session, e)} title="Rename chat">
                                     <img src={gearIcon} alt="Edit" />
                                 </div>
                                 
