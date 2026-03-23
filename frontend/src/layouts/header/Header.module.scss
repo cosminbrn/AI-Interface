@@ -26,6 +26,16 @@
         }
     }
 
+    .sessionName {
+        justify-self: center;
+        font-size: $font-size-xl;
+        font-weight: 500;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 80vw;
+    }
+
     .share {
         justify-self: end;
         margin-right: 0.8rem;
