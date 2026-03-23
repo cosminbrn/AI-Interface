@@ -4,6 +4,7 @@ import styles from './Page.module.scss';
 import Input from "../../layouts/input/Input";
 import Sidebar from "../../layouts/sidebar/Sidebar";
 import { useChatSessions } from "../../hooks/useChatSessions";
+import { useStartFreshChatOnEntry } from "../../hooks/useStartFreshChatOnEntry";
 
 export default function Page() {
     const {
@@ -19,6 +20,8 @@ export default function Page() {
         handleSendMessage,
         handleRenameChat,
     } = useChatSessions();
+
+    useStartFreshChatOnEntry(handleNewChat, currentSession);
 
     return (
         <div className={styles.page}>

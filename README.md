@@ -14,6 +14,7 @@
 - [Usage](#usage)
 - [Important Logic Elements](#important-logic-elements)
 - [Component Overview](#component-overview)
+- [Bonus Features](#bonus-features)
 
 ---
 
@@ -51,7 +52,7 @@ npm run dev
 
 ### Overall completeness
 
-- Implemented all the requirements given in the task document
+- Implemented all the requirements given in the task document, plus bonus ones (check the [Bonus Features](#bonus-features))
 - Mobile-first responsive design
 - Clean, modular codebase with reusable components
 - Simulated API interactions with realistic delays and error handling
@@ -212,3 +213,8 @@ npm run build
 | `Header` | Responsive Header; supports LLM simulated version change and sidebar opening |
 | `Input` | Input box, doesn't permit empty submissions |
 | `Sidebar` | Animated sidebar, interface to previous chat sessions |
+
+## Bonus Features
+
+- Everytime the user sends a message, there's a 25% chance to get a simulated network error message from the LLM. This is implemented using `Math.random()` in the `handleSendMessage()` function in `Page.tsx`.
+- Everytime the user re-enters the page, a new chat session is created, with the current date as ID. This is implemented in the `useStartFreshChatOnEntry` hook in `Page.tsx`.
