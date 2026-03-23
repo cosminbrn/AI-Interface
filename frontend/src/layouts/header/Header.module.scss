@@ -20,7 +20,10 @@
         scale: 1.2;
         cursor: pointer;
 
-        @include hover-circle-effect($color-border);
+        img {
+            aspect-ratio: 1/1;
+            @include hover-circle-effect($color-border);
+        }
     }
 
     .share {

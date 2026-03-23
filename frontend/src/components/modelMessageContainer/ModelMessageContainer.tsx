@@ -24,6 +24,7 @@ export default function ModelMessageContainer({ text, timestamp  }: ModelMessage
                 <img src={chatIcon} alt="chat icon" />
             </div>
             <div className={styles.content}>
+                <div className={styles.timestamp}>{timeString}</div>
                 <ModelTextArea text={text} />
                 <div className={styles.footer}>
                     <div className={styles.actions}>
@@ -40,7 +41,6 @@ export default function ModelMessageContainer({ text, timestamp  }: ModelMessage
                             <img src={thumbsDownIcon} alt="Dislike" />
                         </div>
                     </div>
-                    <div className={styles.timestamp}>{timeString}</div>
                 </div>
             </div>
         </div>
