@@ -1,6 +1,8 @@
 import styles from './Dropdown.module.scss';
 import arrow from '../../assets/arrow.svg'
 import { useState, useRef, useEffect } from 'react';
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
 
 export default function Dropdown() {
     const [isOpen, setOpen] = useState(false);
@@ -15,6 +17,15 @@ export default function Dropdown() {
         //setSelectedOption(option);
         setOpen(false);
     }
+
+    const arrowRef = useRef<HTMLImageElement>(null);
+    useGSAP(() => {
+        gsap.to(arrowRef.current, {
+            rotation: isOpen ? 180 : 0,
+            duration: 0.3,
+            ease: 'power3.inOut'
+        })
+    }, [isOpen]);
 
     useEffect(() => {
 
@@ -33,7 +44,7 @@ export default function Dropdown() {
 
     return (
         <div className={styles.dropdown} ref={dropdownRef}>
-                <img src={arrow} alt="Dropdown Arrow" className={styles.arrow} onClick={toggleDropdown} />
+                <img ref={arrowRef} src={arrow} alt="Dropdown Arrow" className={styles.arrow} onClick={toggleDropdown} />
             {isOpen && (
                 <div className={styles.menu}>
                     <div className={styles.menuItem} onClick={() => handleOptionClick('NewGen AI 4.0')}>NexGen AI 4.0</div>
