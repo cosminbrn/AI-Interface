@@ -101,19 +101,18 @@ export default function ModelMessageContainer({ text, timestamp  }: ModelMessage
                 <div className={styles.footer}>
                     <div className={styles.actions}>
                         <div className={styles.copyActionButtonWrapper}>
-                            <div className={styles.actionButton} onClick={handleCopy} title="Copy text" ref={copyRef}>
+                            <div className={styles.actionButton} onClick={handleCopy} title="Copy text" ref={copyRef} role="button" tabIndex={0} aria-label="Copy model response">
                                 <img src={copyIcon} alt="Copy" />
                             </div>
-                            {/* 5. Render the tooltip if isCopied is true */}
-                            {isCopied && <div className={styles.tooltip}>Copied!</div>}
+                            {isCopied && <div className={styles.tooltip} role="status" aria-live="polite">Copied!</div>}
                         </div>
-                        <div className={styles.actionButton} title="Regenerate response" ref={refreshRef} onClick={handleRefresh}>
+                        <div className={styles.actionButton} title="Regenerate response" ref={refreshRef} onClick={handleRefresh} role="button" tabIndex={0} aria-label="Regenerate response">
                             <img src={refreshIcon} alt="Regenerate" />
                         </div>
-                        <div className={styles.actionButton} title="Good response" ref={thumbsUpRef} onClick={handleThumbsUp}>
+                        <div className={styles.actionButton} title="Good response" ref={thumbsUpRef} onClick={handleThumbsUp} role="button" tabIndex={0} aria-label="Mark response as good">
                             <img src={thumbsUpIcon} alt="Like" />
                         </div>
-                        <div className={styles.actionButton} title="Bad response" ref={thumbsDownRef} onClick={handleThumbsDown}>
+                        <div className={styles.actionButton} title="Bad response" ref={thumbsDownRef} onClick={handleThumbsDown} role="button" tabIndex={0} aria-label="Mark response as bad">
                             <img src={thumbsDownIcon} alt="Dislike" />
                         </div>
                     </div>

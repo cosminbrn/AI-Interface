@@ -37,12 +37,13 @@ export default function Input({ onSendMessage, isTyping }: InputProps) {
                 <textarea
                     className={styles.textarea}
                     placeholder="Message NexGen"
+                    aria-label="Message input"
                     value={inputValue}
                     onChange={(e) => setInputValue(e.target.value)}
                     onKeyDown={handleKeyDown}
                 />
                 <Dropdown />
-                <div className={styles.send} onClick={handleSend} role="button" tabIndex={0} onKeyDown={(e) => {
+                <div className={styles.send} onClick={handleSend} role="button" tabIndex={0} aria-label="Send message" aria-disabled={isTyping || inputValue.trim() === ''} onKeyDown={(e) => {
                     if (e.key === 'Enter' || e.key === ' ') {
                         e.preventDefault();
                         handleSend();

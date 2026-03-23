@@ -6,7 +6,11 @@ interface ButtonProps {
 
 export default function Button({ onNewChat }: ButtonProps) {
     return (
-        <div className={styles.newChatButton} onClick={onNewChat}>
+        <div className={styles.newChatButton} onClick={onNewChat}
+            role="button"
+            tabIndex={0}
+            aria-label="Start new chat"
+        >
             <div className={styles.text}>New Chat</div>
         </div>
     )

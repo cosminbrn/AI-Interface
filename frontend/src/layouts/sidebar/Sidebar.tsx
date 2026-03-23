@@ -61,12 +61,16 @@ export default function Sidebar({ isOpen, onClose, sessions, currentSessionId, o
     }
     return (
         <>
-            <div ref={overlayRef} className={styles.overlay} onClick={onClose}></div>
+            <div ref={overlayRef} className={styles.overlay} onClick={onClose} aria-hidden="true"></div>
 
             <aside ref={sidebarRef} className={`${styles.sidebar} ${isOpen ? styles.sidebarOpen : ''}`}>
                 <div className={styles.topSection}>
                     <Button onNewChat={onNewChat}></Button>
-                    <div className={styles.closeBtn} onClick={onClose}>
+                    <div className={styles.closeBtn} onClick={onClose}
+                        role="button"
+                        tabIndex={0}
+                        aria-label="Close sidebar"
+                    >
                         <img src={closeIcon} alt="Close Menu" />
                     </div>
                 </div>
@@ -75,7 +79,11 @@ export default function Sidebar({ isOpen, onClose, sessions, currentSessionId, o
                     <div className={styles.historyGroup}>
                         <div className={styles.historyTitle}>Today</div>
                         {sessions.map((session) => (
-                            <div key={session.id} className={`${styles.historyItem} ${session.id === currentSessionId ? styles.active : ''}`} onClick={() => { onSessionSelect(session.id); setEditingId(null); }}>
+                            <div key={session.id} className={`${styles.historyItem} ${session.id === currentSessionId ? styles.active : ''}`} onClick={() => { onSessionSelect(session.id); setEditingId(null); }}
+                                role="button"
+                                tabIndex={0}
+                                aria-label={`Open chat ${session.title}`}
+                            >
                                 <img src={messageIcon} alt="" />
                                 {editingId === session.id ? (
                                     <input

@@ -219,4 +219,5 @@ npm run build
 - Everytime the user sends a message, there's a 25% chance to get a simulated network error message from the LLM. This is implemented using `Math.random()` in the `handleSendMessage()` function in `Page.tsx`.
 - Everytime the user re-enters the page, a new chat session is created, with the current date as ID. This is implemented in the `useStartFreshChatOnEntry` hook in `Page.tsx`.
 - Use `dvh` units and `env(safe-area-inset-*)` to make the app look good on mobile devices, even with notches and dynamic toolbars.
-- Mobile-first approach, with a responsive design that adapts to different screen sizes.
+- Mobile-first approach and responsive.
+- Used semantic HTML elements, ARIA attributes, and keyboard navigability optimizations.
