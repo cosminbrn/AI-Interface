@@ -6,6 +6,8 @@
     grid-template-columns: 1fr;
     grid-template-rows: $navbar-height-mobile 1fr auto;
     height: 100vh;
+    height: 100dvh;
+    overflow-y: hidden;
     gap: 0;
 
     @include respond-above('md') {
