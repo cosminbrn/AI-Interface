@@ -1,7 +1,7 @@
 import styles from './Chat.module.scss';
 import ModelMessageContainer from '../../components/modelMessageContainer/ModelMessageContainer';
 import UserMessageContainer from '../../components/userMessageContainer/UserMessageContainer';
-import type { Message } from '../../features/page/Page';
+import type { Message } from '../../types/chatTypes';
 import { useEffect, useRef } from 'react';
 
 interface ChatProps {
