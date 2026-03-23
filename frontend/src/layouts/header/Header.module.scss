@@ -43,7 +43,10 @@
         scale: 1.2;
         cursor: pointer;
 
-        @include hover-circle-effect($color-border);
+        img {
+            padding: 0.25rem;
+            @include hover-circle-effect($color-border);
+        }
     }
 
     @include respond-above('md') {
