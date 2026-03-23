@@ -9,6 +9,10 @@
     overflow-y: auto;
     flex-grow: auto;
 
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
     @include respond-above('laptop') {
         padding-top: 0rem;
     }
@@ -31,8 +35,11 @@
             padding: 2rem 5rem;
         }
 
-         --- IGNORE ---
-         .message {
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        .message {
             display: flex;
             flex-direction: column;
             gap: 0.5rem;

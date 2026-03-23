@@ -33,8 +33,12 @@ body {
       background: transparent;
   }
 
+  ::-webkit-scrollbar-button {
+      display: none;
+  }
+
   * {
-      scrollbar-width: thin;
+      scrollbar-width: none;
       scrollbar-color: rgba(136, 136, 136, 0.3) transparent;
   }
 }
