@@ -14,7 +14,7 @@
 - [Usage](#usage)
 - [Important Logic Elements](#important-logic-elements)
 - [Component Overview](#component-overview)
-- [Bonus Features](#bonus-features)
+- [Bonus Features and Accessibility](#bonus-features-and-accessibility)
 
 ---
 
@@ -52,7 +52,7 @@ npm run dev
 
 ### Overall completeness
 
-- Implemented all the requirements given in the task document, plus bonus ones (check the [Bonus Features](#bonus-features))
+- Implemented all the requirements given in the task document, plus bonus ones (check the [Bonus Features](#bonus-features-and-accessibility) section for more details)
 - Mobile-first responsive design
 - Clean, modular codebase with reusable components
 - Simulated API interactions with realistic delays and error handling
@@ -203,7 +203,7 @@ npm run build
 ## Component Overview
 
 | Component | Responsibility |
-|---|---|
+| --- | --- |
 | `Button` | Sidebar layout; creates a new chat session |
 | `Dropdown` | Header layout; dropdown button that is supposed to change the LLM version |
 | `modelMessage` | Component family; together, they create the styling and logic for the LLM messages |
@@ -214,7 +214,7 @@ npm run build
 | `Input` | Input box, doesn't permit empty submissions |
 | `Sidebar` | Animated sidebar, interface to previous chat sessions |
 
-## Bonus Features
+## Bonus Features and Accessibility
 
 - Everytime the user sends a message, there's a 25% chance to get a simulated network error message from the LLM. This is implemented using `Math.random()` in the `handleSendMessage()` function in `Page.tsx`.
 - Everytime the user re-enters the page, a new chat session is created, with the current date as ID. This is implemented in the `useStartFreshChatOnEntry` hook in `Page.tsx`.
