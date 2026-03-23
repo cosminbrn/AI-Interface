@@ -3,6 +3,7 @@ import paperclip from '../../assets/icons/paperclipIcon.svg';
 import Send from '../../assets/icons/sendIcon.svg';
 import Loading from '../../assets/icons/loadingIcon.svg';
 import { useState } from 'react';
+import Dropdown from '../../components/dropdown/Dropdown';
 
 interface InputProps {
     onSendMessage: (text: string) => void;
@@ -40,6 +41,7 @@ export default function Input({ onSendMessage, isTyping }: InputProps) {
                     onChange={(e) => setInputValue(e.target.value)}
                     onKeyDown={handleKeyDown}
                 />
+                <Dropdown />
                 <div className={styles.send} onClick={handleSend} role="button" tabIndex={0} onKeyDown={(e) => {
                     if (e.key === 'Enter' || e.key === ' ') {
                         e.preventDefault();

@@ -1,25 +1,38 @@
 import styles from './Dropdown.module.scss';
 import arrow from '../../assets/arrow.svg'
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 
 export default function Dropdown() {
     const [isOpen, setOpen] = useState(false);
-    const [selectedOption, setSelectedOption] = useState('NewGen AI 4.0');
+    //const [selectedOption, setSelectedOption] = useState('NewGen AI 4.0');
+    const dropdownRef = useRef<HTMLDivElement>(null);
 
     const toggleDropdown = () => {
         setOpen(!isOpen);
     }
 
     const handleOptionClick = (option: string) => {
-        setSelectedOption(option);
+        //setSelectedOption(option);
         setOpen(false);
     }
 
+    useEffect(() => {
+
+        if (!isOpen) return; 
+
+        const handleClickOutside = (event: MouseEvent) => {
+            if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+                setOpen(false);
+            }
+        };
+
+        document.addEventListener('mousedown', handleClickOutside);
+        
+        return () => document.removeEventListener('mousedown', handleClickOutside);
+    }, [isOpen]);
+
     return (
-        <div className={styles.dropdown}>
-                <div className={styles.text} onClick={toggleDropdown}>
-                    {selectedOption}
-                </div>
+        <div className={styles.dropdown} ref={dropdownRef}>
                 <img src={arrow} alt="Dropdown Arrow" className={styles.arrow} onClick={toggleDropdown} />
             {isOpen && (
                 <div className={styles.menu}>

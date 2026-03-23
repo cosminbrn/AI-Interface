@@ -3,23 +3,13 @@
 
 .dropdown {
     background: $color-chat-surface;
-    border-radius: $radius-xs;
-    height: 70%;
-    max-height: 50px;
-    border: 2px solid color.change($color-border, $alpha: 0.2);
-    display: inline-grid;
+    display: flex;
+    justify-content: center;
     align-items: center;
-    grid-template-columns: 1fr auto;
-    width: max-content;
-    min-width: to-rem(95px);
-    padding: to-rem(2px) to-rem(8px) 0 to-rem(12px);
-    column-gap: to-rem(8px);
-    font-size: $font-size-base;
+    width: 2.5rem;
+    height: 2.5rem;
     cursor: pointer;
-
-    .text {
-        white-space: nowrap;
-    }
+    margin-right: 0.5rem;
 
     .arrow {
         scale: 1.5;
@@ -30,7 +20,7 @@
         background: $color-chat-surface;
         border-radius: $radius-xs;
         border: 2px solid color.change($color-border, $alpha: 0.2);
-        top: calc($navbar-height-mobile - 2vh);
+        bottom: calc(100% + 0.5rem);
         display: flex;
         flex-direction: column;
         z-index: 10;
@@ -38,19 +28,13 @@
         .menuItem {
             padding: to-rem(8px);
             cursor: pointer;
+            font-size: $font-size-base;
+            font-weight: 700;
 
             &:hover {
                 background: color.change($color-border, $alpha: 0.1);
             }
         }
-    }
-
-    @include respond-above('md') {
-        top: calc($navbar-height - 2vh);
-    }
-
-    @media (min-height: $breakpoint-tablet) {
-        height: 60%;
     }
 }
 
