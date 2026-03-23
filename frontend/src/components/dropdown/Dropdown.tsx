@@ -13,7 +13,7 @@ export default function Dropdown() {
         setOpen(!isOpen);
     }
 
-    const handleOptionClick = (option: string) => {
+    const handleOptionClick = () => {
         //setSelectedOption(option);
         setOpen(false);
     }
@@ -47,8 +47,8 @@ export default function Dropdown() {
                 <img ref={arrowRef} src={arrow} alt="Dropdown Arrow" className={styles.arrow} onClick={toggleDropdown} />
             {isOpen && (
                 <div className={styles.menu}>
-                    <div className={styles.menuItem} onClick={() => handleOptionClick('NewGen AI 4.0')}>NexGen AI 4.0</div>
-                    <div className={styles.menuItem} onClick={() => handleOptionClick('NewGen AI 3.5')}>NexGen AI 3.5</div>
+                    <div className={styles.menuItem} onClick={() => handleOptionClick()}>NexGen AI 4.0</div>
+                    <div className={styles.menuItem} onClick={() => handleOptionClick()}>NexGen AI 3.5</div>
                 </div>
             )}
         </div>
