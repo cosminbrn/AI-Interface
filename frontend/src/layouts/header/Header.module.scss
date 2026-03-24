@@ -13,16 +13,41 @@
     top: 0;
     z-index: 100;
 
-    .burger {
+    .utilities {
+        display: flex;
+        flex-direction: row;
         justify-self: start;
         margin-left: 1rem;
-        padding: 0.5rem;
-        scale: 1.2;
-        cursor: pointer;
+        gap: 2.5rem;
 
-        img {
-            aspect-ratio: 1/1;
-            @include hover-circle-effect($color-border);
+        .iconBurger {
+            scale: 1.2;
+            cursor: pointer;
+
+            img {
+                aspect-ratio: 1/1;
+                @include hover-circle-effect($color-border);
+            }
+        }
+
+        .iconLogo {
+            scale: 1.2;
+            cursor: pointer;
+            width: fit-content;
+            margin: auto 0;
+            display: none;
+
+            img {
+                aspect-ratio: 1/1;
+            }
+
+            @include respond-above('tablet') {
+                display: block;
+            }
+        }
+
+        @include respond-above('tablet') {
+            margin-left: 2.5rem;
         }
     }
 
@@ -33,7 +58,7 @@
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        max-width: 80vw;
+        max-width: 40vw;
         visibility: hidden;
 
         @include respond-above('tablet') {
@@ -61,11 +86,20 @@
         .iconProfile {
             scale: 1.2;
             cursor: pointer;
+            display: none;
 
             img {
                 padding: 0.25rem;
                 @include hover-circle-effect($color-border);
             }
+
+            @include respond-above('tablet') {
+                display: block;
+            }
+        }
+
+        @include respond-above('tablet') {
+            margin-right: 2.5rem;
         }
     }
 }

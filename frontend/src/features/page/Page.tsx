@@ -32,7 +32,7 @@ export default function Page() {
                 onNewChat={handleNewChat}
                 onRenameChat={handleRenameChat}
             />
-            <Header onMenuClick={() => setIsSidebarOpen(true)} currentSession={currentSession?.title || 'Unnamed Chat'} />
+            <Header onMenuClick={() => setIsSidebarOpen(true)} onLogoClick={() => handleNewChat()}currentSession={currentSession?.title || 'Unnamed Chat'} />
             <Chat messages={messages} isTyping={isTyping} />
             <Input onSendMessage={handleSendMessage} isTyping={isTyping} />
         </div>

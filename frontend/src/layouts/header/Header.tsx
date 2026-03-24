@@ -2,18 +2,26 @@ import styles from './Header.module.scss'
 import burgerIcon from '../../assets/burger.svg';
 import shareIcon from '../../assets/share.svg';
 import userSmallIcon from '../../assets/icons/userSmallWhiteIcon.svg';
+import aiLogoIcon from '../../assets/icons/aiIcon.svg';
 
 interface HeaderProps {
     onMenuClick: () => void;
+    onLogoClick?: () => void;
     currentSession: string;
 }
 
-export function Header({ onMenuClick, currentSession }: HeaderProps) {
+export function Header({ onMenuClick, onLogoClick, currentSession }: HeaderProps) {
     return (
         <nav className={styles.navbar}>
-            <div className={styles.burger} onClick={onMenuClick}>
-                <img src={burgerIcon} alt="Menu" />
+            <div className={styles.utilities}>
+                <div className={styles.iconLogo} onClick={onLogoClick}>
+                    <img src={aiLogoIcon} alt="AI Logo" />
+                </div>
+                <div className={styles.iconBurger} onClick={onMenuClick}>
+                    <img src={burgerIcon} alt="Menu" />
+                </div>
             </div>
+            
             <div className={styles.sessionName}>
                 {currentSession}
             </div>
