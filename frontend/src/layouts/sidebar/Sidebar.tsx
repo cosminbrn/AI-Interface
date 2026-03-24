@@ -44,8 +44,8 @@ export default function Sidebar({ isOpen, onClose, sessions, currentSessionId, o
     useGSAP(() => {
         gsap.to(sidebarRef.current, {
             x: isOpen ? '0%' : '-100%',
-            duration: 0.5,
-            ease: 'power3.inOut'
+            duration: 0.4,
+            ease: 'easeOut',
         })
 
         gsap.to(overlayRef.current, {
