@@ -3,7 +3,7 @@ import Chat from "../../layouts/chat/Chat"
 import styles from './Page.module.scss';
 import Input from "../../layouts/input/Input";
 import Sidebar from "../../layouts/sidebar/Sidebar";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { type ChatSession, type Message } from "../../types/chatTypes";
 
 const initialMessage: Message = {
@@ -36,6 +36,19 @@ export default function Page() {
     const messages = currentSession ? currentSession.messages : [];
 
     const handleNewChat = () => {
+        const latestSession = sessions[0];
+
+        const isUntouchedNewChat =
+            latestSession?.title === "New Chat" &&
+            latestSession.messages.length <= 1 &&
+            latestSession.messages.every((message) => message.sender === "ai");
+
+        if (isUntouchedNewChat) {
+            setCurrentSessionId(latestSession.id);
+            setIsSidebarOpen(false);
+            return;
+        }
+
         const newSession: ChatSession = {
             id: Date.now().toString(),
             title: "New Chat",
@@ -131,6 +144,31 @@ export default function Page() {
         }));
     };
 
+    const hasInitialized = useRef(false);
+
+    useEffect(() => {
+        if (hasInitialized.current) return;
+        hasInitialized.current = true;
+
+        const latestSession = sessions[0];
+        
+        if (!latestSession) {
+            handleNewChat();
+            return;
+        }
+
+        const isUntouchedNewChat =
+            latestSession.title === "New Chat" &&
+            latestSession.messages.length <= 1 &&
+            latestSession.messages.every((message) => message.sender === "ai");
+
+        if (!isUntouchedNewChat) {
+            handleNewChat();
+        } else {
+            setCurrentSessionId(latestSession.id);
+        }
+    }, []);
+
     return (
         <div className={styles.page}>
             <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)}
@@ -140,7 +178,7 @@ export default function Page() {
                 onNewChat={handleNewChat}
                 onRenameChat={handleRenameChat}
             />
-            <Header onMenuClick={() => setIsSidebarOpen(true)} currentSession={currentSession?.title || 'Unnamed Chat'} />
+            <Header onLogoClick={() => handleNewChat()} onMenuClick={() => setIsSidebarOpen(true)} currentSession={currentSession?.title || 'Unnamed Chat'} />
             <Chat messages={messages} isTyping={isTyping} />
             <Input onSendMessage={handleSendMessage} isTyping={isTyping} />
         </div>
