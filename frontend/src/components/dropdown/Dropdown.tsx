@@ -1,5 +1,5 @@
 import styles from './Dropdown.module.scss';
-import arrow from '../../assets/arrow.svg'
+import arrow from '../../assets/icons/arrowIcon.svg';
 import { useState, useRef, useEffect } from 'react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';

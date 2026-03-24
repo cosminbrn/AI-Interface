@@ -1,6 +1,6 @@
 import styles from './Header.module.scss'
-import burgerIcon from '../../assets/burger.svg';
-import shareIcon from '../../assets/share.svg';
+import burgerIcon from '../../assets/icons/burgerIcon.svg';
+import shareIcon from '../../assets/icons/shareIcon.svg';
 import userSmallIcon from '../../assets/icons/userSmallWhiteIcon.svg';
 import aiLogoIcon from '../../assets/icons/aiIcon.svg';
 
