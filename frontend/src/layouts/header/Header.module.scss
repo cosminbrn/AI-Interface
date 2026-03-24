@@ -15,7 +15,7 @@
 
     .burger {
         justify-self: start;
-        margin-left: 0.8rem;
+        margin-left: 1rem;
         padding: 0.5rem;
         scale: 1.2;
         cursor: pointer;
@@ -34,22 +34,38 @@
         overflow: hidden;
         text-overflow: ellipsis;
         max-width: 80vw;
-    }
+        visibility: hidden;
 
-    .share {
-        justify-self: end;
-        margin-right: 0.8rem;
-        padding: 0.5rem;
-        scale: 1.2;
-        cursor: pointer;
-
-        img {
-            padding: 0.25rem;
-            @include hover-circle-effect($color-border);
+        @include respond-above('tablet') {
+            visibility: visible;
         }
     }
 
-    @include respond-above('md') {
-        height: $navbar-height; 
+    .links {
+        display: flex;
+        flex-direction: row;
+        justify-self: end;
+        margin-right: 1rem;
+        gap: 2.5rem;
+
+        .iconShare {
+            scale: 1.2;
+            cursor: pointer;
+
+            img {
+                padding: 0.25rem;
+                @include hover-circle-effect($color-border);
+            }
+        }
+
+        .iconProfile {
+            scale: 1.2;
+            cursor: pointer;
+
+            img {
+                padding: 0.25rem;
+                @include hover-circle-effect($color-border);
+            }
+        }
     }
 }
