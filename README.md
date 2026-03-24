@@ -56,6 +56,7 @@ npm run dev
 - Mobile-first responsive design
 - Clean, modular codebase with reusable components
 - Simulated API interactions with realistic delays and error handling
+- Feedback from both technical and non-technical users incorporated into the design and functionality
 
 ### Chat UI
 
@@ -113,6 +114,7 @@ Each AI message supports:
 - Mock [Figma](https://www.figma.com/design/jIxHP4AxvGLOZSusqTYNpN/AI-Interface?m=auto&t=QJ3Bfjs8F4GLLXf3-1)
 - Fully responsive layout
 - Basic accessibility support
+- Adapted design based on user feedback from both technical and non-technical users
 
 ---
 
