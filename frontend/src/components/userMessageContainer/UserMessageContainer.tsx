@@ -18,8 +18,8 @@ export default function UserMessageContainer ({ text, timestamp }: UserMessageCo
             </div>
             
             <div className={styles.content}>
-                <UserTextArea text={text} />
                 <div className={styles.timestamp}>{timeString}</div>
+                <UserTextArea text={text} />
             </div>
         </div>
     )
