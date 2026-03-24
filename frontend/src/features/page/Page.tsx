@@ -13,6 +13,14 @@ const initialMessage: Message = {
     timestamp: new Date(),
 };
 
+const isUntouchedNewChatSession = (session?: ChatSession) => {
+    return (
+        session?.title === "New Chat" &&
+        session.messages.length <= 1 &&
+        session.messages.every((message) => message.sender === "ai")
+    );
+};
+
 export default function Page() {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
@@ -39,10 +47,7 @@ export default function Page() {
     const handleNewChat = () => {
         const latestSession = sessions[0];
 
-        const isUntouchedNewChat =
-            latestSession?.title === "New Chat" &&
-            latestSession.messages.length <= 1 &&
-            latestSession.messages.every((message) => message.sender === "ai");
+        const isUntouchedNewChat = isUntouchedNewChatSession(latestSession);
 
         if (isUntouchedNewChat) {
             setCurrentSessionId(latestSession.id);
@@ -82,10 +87,10 @@ export default function Page() {
 
         const appendWordToMessage = (sessionId: string, messageId: string, word: string) => {
             setSessions(prevSessions => prevSessions.map(session => {
-                if (session.id !== sessionId) return session; 
+                if (session.id !== sessionId) return session;
 
                 return {...session, messages: session.messages.map(msg => {
-                        if (msg.id !== messageId) return msg; 
+                        if (msg.id !== messageId) return msg;
                         return { ...msg, text: msg.text ? `${msg.text} ${word}` : word };
                     })
                 };
@@ -128,7 +133,7 @@ export default function Page() {
             let currentIndex = 0;
             const streamInterval = setInterval(() => {
                 if (currentIndex >= words.length) {
-                    clearInterval(streamInterval); 
+                    clearInterval(streamInterval);
                     return;
                 }
 
@@ -154,16 +159,13 @@ export default function Page() {
         hasInitialized.current = true;
 
         const latestSession = sessions[0];
-        
+
         if (!latestSession) {
             handleNewChat();
             return;
         }
 
-        const isUntouchedNewChat =
-            latestSession.title === "New Chat" &&
-            latestSession.messages.length <= 1 &&
-            latestSession.messages.every((message) => message.sender === "ai");
+        const isUntouchedNewChat = isUntouchedNewChatSession(latestSession);
 
         if (!isUntouchedNewChat) {
             handleNewChat();

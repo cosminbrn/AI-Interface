@@ -21,7 +21,7 @@ export function Header({ onMenuClick, onLogoClick, currentSession }: HeaderProps
                     <img src={burgerIcon} alt="Menu" />
                 </div>
             </div>
-            
+
             <div className={styles.sessionName}>
                 {currentSession}
             </div>

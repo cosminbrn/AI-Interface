@@ -11,7 +11,7 @@ interface ChatProps {
 
 export default function Chat({ messages, isTyping }: ChatProps) {
     const messagesEndRef = useRef<HTMLDivElement>(null);
-    
+
     useEffect(() => {
         messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
     }, [messages, isTyping]);

@@ -16,7 +16,7 @@ export default function UserMessageContainer ({ text, timestamp }: UserMessageCo
             <div className={styles.icon}>
                 <img src={userIcon} alt="User Icon" />
             </div>
-            
+
             <div className={styles.content}>
                 <div className={styles.timestamp}>{timeString}</div>
                 <UserTextArea text={text} />

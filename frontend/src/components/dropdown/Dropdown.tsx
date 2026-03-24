@@ -6,7 +6,6 @@ import gsap from 'gsap';
 
 export default function Dropdown() {
     const [isOpen, setOpen] = useState(false);
-    //const [selectedOption, setSelectedOption] = useState('NewGen AI 4.0');
     const dropdownRef = useRef<HTMLDivElement>(null);
 
     const toggleDropdown = () => {
@@ -14,7 +13,6 @@ export default function Dropdown() {
     }
 
     const handleOptionClick = () => {
-        //setSelectedOption(option);
         setOpen(false);
     }
 
@@ -29,7 +27,7 @@ export default function Dropdown() {
 
     useEffect(() => {
 
-        if (!isOpen) return; 
+        if (!isOpen) return;
 
         const handleClickOutside = (event: MouseEvent) => {
             if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
@@ -38,7 +36,7 @@ export default function Dropdown() {
         };
 
         document.addEventListener('mousedown', handleClickOutside);
-        
+
         return () => document.removeEventListener('mousedown', handleClickOutside);
     }, [isOpen]);
 

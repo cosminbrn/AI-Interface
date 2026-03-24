@@ -1,6 +1,6 @@
 import styles from './Sidebar.module.scss';
-import messageIcon from '../../assets/icons/clockIcon.svg'; 
-import userAvatar from '../../assets/icons/userIcon.svg'; 
+import messageIcon from '../../assets/icons/clockIcon.svg';
+import userAvatar from '../../assets/icons/userIcon.svg';
 import closeIcon from '../../assets/icons/burgerIcon.svg';
 import gearIcon from '../../assets/icons/gearIcon.svg';
 import type { ChatSession } from '../../types/chatTypes';
@@ -104,7 +104,7 @@ export default function Sidebar({ isOpen, onClose, sessions, currentSessionId, o
                                         onBlur={() => handleRenameSubmit(session.id)}
                                         onKeyDown={(e) => handleKeyDown(e, session.id)}
                                         autoFocus
-                                        onClick={(e) => e.stopPropagation()} 
+                                        onClick={(e) => e.stopPropagation()}
                                     />
                                 ) : (
                                     <div className={styles.itemText}>{session.title}</div>
@@ -113,7 +113,7 @@ export default function Sidebar({ isOpen, onClose, sessions, currentSessionId, o
                                 <div className={styles.editIcon} onClick={(e) => startEditing(session, e)} title="Rename chat">
                                     <img src={gearIcon} alt="Edit" />
                                 </div>
-                                
+
                             </div>
                         ))}
                     </div>
