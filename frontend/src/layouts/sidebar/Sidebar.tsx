@@ -50,8 +50,8 @@ export default function Sidebar({ isOpen, onClose, sessions, currentSessionId, o
 
         gsap.to(overlayRef.current, {
             autoAlpha: isOpen ? 1 : 0,
-            duration: 0.5,
-            ease: 'power3.inOut'
+            duration: 0.4,
+            ease: 'power2.inOut'
         })
     }, [isOpen])
 
