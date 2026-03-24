@@ -17,6 +17,7 @@ export default function Page() {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
     const [isTyping, setIsTyping] = useState(false);
+    const [clearInputTrigger, setClearInputTrigger] = useState(0);
 
     const [sessions, setSessions] = useState<ChatSession[]>(() => {
         const savedSessions = localStorage.getItem("chat_sessions");
@@ -45,6 +46,7 @@ export default function Page() {
 
         if (isUntouchedNewChat) {
             setCurrentSessionId(latestSession.id);
+            setClearInputTrigger((prev) => prev + 1);
             setIsSidebarOpen(false);
             return;
         }
@@ -56,6 +58,7 @@ export default function Page() {
         };
         setSessions([newSession, ...sessions]);
         setCurrentSessionId(newSession.id);
+        setClearInputTrigger((prev) => prev + 1);
         setIsSidebarOpen(false);
     };
 
@@ -180,7 +183,7 @@ export default function Page() {
             />
             <Header onLogoClick={() => handleNewChat()} onMenuClick={() => setIsSidebarOpen(true)} currentSession={currentSession?.title || 'Unnamed Chat'} />
             <Chat messages={messages} isTyping={isTyping} />
-            <Input onSendMessage={handleSendMessage} isTyping={isTyping} />
+            <Input onSendMessage={handleSendMessage} isTyping={isTyping} clearInputTrigger={clearInputTrigger} />
         </div>
     )
 }

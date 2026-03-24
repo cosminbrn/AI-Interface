@@ -2,17 +2,22 @@ import styles from './Input.module.scss';
 import paperclip from '../../assets/icons/paperclipIcon.svg';
 import Send from '../../assets/icons/sendIcon.svg';
 import Loading from '../../assets/icons/loadingIcon.svg';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Dropdown from '../../components/dropdown/Dropdown';
 
 interface InputProps {
     onSendMessage: (text: string) => void;
     isTyping: boolean;
+    clearInputTrigger: number;
 }
 
-export default function Input({ onSendMessage, isTyping }: InputProps) {
+export default function Input({ onSendMessage, isTyping, clearInputTrigger }: InputProps) {
 
     const [inputValue, setInputValue] = useState('');
+
+    useEffect(() => {
+        setInputValue('');
+    }, [clearInputTrigger]);
 
     const handleSend = () => {
         if (inputValue.trim() === '' || isTyping) return;
