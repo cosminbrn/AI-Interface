@@ -3,6 +3,7 @@
 @use "sass:color";
 
 .newChatButton {
+    max-height: 80%;
     display: flex;
     flex-direction: row;
     align-items: center;

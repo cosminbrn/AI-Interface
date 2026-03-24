@@ -28,20 +28,30 @@
     
     &.sidebarOpen {
         left: 0;
+        gap: 2rem;
     }
 
     .topSection {
         display: flex;
+        flex-direction: row;
         align-items: center;
         padding: 1rem;
-        gap: 0.5rem;
-        margin: 2rem 0rem 1rem;
+        gap: 3rem;
+        height: $navbar-height-mobile;
+        min-height: 4rem;
+        margin: auto 0;
 
         .closeBtn {
             cursor: pointer;
             padding: 0.5rem;
+            align-self: center;
+            justify-content: flex-end;
 
-            @include hover-circle-effect($color-border);
+            img {
+                aspect-ratio: 1/1;
+                scale: 1.2;
+                @include hover-circle-effect($color-border);
+            }
         }
     }
 
@@ -98,7 +108,7 @@
                 }
 
                 .itemText {
-                    max-width: 80%;
+                    max-width: 60%;
                     white-space: nowrap;
                     overflow: hidden;
                 }

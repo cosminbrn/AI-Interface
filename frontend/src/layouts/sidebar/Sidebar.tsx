@@ -1,7 +1,7 @@
 import styles from './Sidebar.module.scss';
 import messageIcon from '../../assets/icons/clockIcon.svg'; 
 import userAvatar from '../../assets/icons/userIcon.svg'; 
-import closeIcon from '../../assets/icons/closeIcon.svg';
+import closeIcon from '../../assets/icons/burgerIcon.svg';
 import gearIcon from '../../assets/icons/gearIcon.svg';
 import type { ChatSession } from '../../types/chatTypes';
 import React, { useState, useRef } from 'react';
