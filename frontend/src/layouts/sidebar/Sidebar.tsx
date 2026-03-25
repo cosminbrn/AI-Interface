@@ -41,18 +41,54 @@ export default function Sidebar({ isOpen, onClose, sessions, currentSessionId, o
 
     const sidebarRef = useRef<HTMLElement>(null);
     const overlayRef = useRef<HTMLDivElement>(null);
+    const historyListRef = useRef<HTMLDivElement>(null);
     useGSAP(() => {
+        gsap.killTweensOf([sidebarRef.current, overlayRef.current, historyListRef.current]);
+
+        if (isOpen) {
+            gsap.to(sidebarRef.current, {
+                x: '0%',
+                duration: 0.5,
+                ease: 'power3.out',
+            });
+
+            gsap.to(overlayRef.current, {
+                autoAlpha: 1,
+                duration: 0.5,
+                ease: 'power2.out',
+            });
+
+            gsap.fromTo(historyListRef.current,
+                { autoAlpha: 0, y: 8 },
+                {
+                    autoAlpha: 1,
+                    y: 0,
+                    duration: 0.5,
+                    delay: 0.1,
+                    ease: 'power2.out',
+                }
+            );
+            return;
+        }
+
         gsap.to(sidebarRef.current, {
-            x: isOpen ? '0%' : '-100%',
-            duration: 0.4,
-            ease: 'easeOut',
-        })
+            x: '-100%',
+            duration: 0.3,
+            ease: 'power3.in',
+        });
 
         gsap.to(overlayRef.current, {
-            autoAlpha: isOpen ? 1 : 0,
-            duration: 0.4,
-            ease: 'power2.inOut'
-        })
+            autoAlpha: 0,
+            duration: 0.3,
+            ease: 'power3.in',
+        });
+
+        gsap.to(historyListRef.current, {
+            autoAlpha: 0,
+            y: 6,
+            duration: 0.3,
+            ease: 'power3.in',
+        });
     }, [isOpen])
 
     const handleRenameSubmit = (id: string) => {
@@ -73,7 +109,7 @@ export default function Sidebar({ isOpen, onClose, sessions, currentSessionId, o
         <>
             <div ref={overlayRef} className={styles.overlay} onClick={onClose} aria-hidden="true"></div>
 
-            <aside ref={sidebarRef} className={`${styles.sidebar} ${isOpen ? styles.sidebarOpen : ''}`}>
+            <aside ref={sidebarRef} className={styles.sidebar}>
                 <div className={styles.topSection}>
                     <Button onNewChat={onNewChat}></Button>
                     <div className={styles.closeBtn} onClick={onClose}
@@ -85,7 +121,7 @@ export default function Sidebar({ isOpen, onClose, sessions, currentSessionId, o
                     </div>
                 </div>
 
-                <div className={styles.historyList}>
+                <div ref={historyListRef} className={styles.historyList}>
                     <div className={styles.historyGroup}>
                         <div className={styles.historyTitle}>Today</div>
                         {sessions.map((session) => (
