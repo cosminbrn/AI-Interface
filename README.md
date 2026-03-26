@@ -253,4 +253,4 @@ npm run build
 ### Cosmin-George Baroana
 
 - [GitHub](https://github.com/cosminbrn)
-- [Email](mailto:cosmin.george.baroana@gmail.com)
+- [Email](mailto:cosminbaroana06@gmail.com)
