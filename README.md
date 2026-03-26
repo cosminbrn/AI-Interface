@@ -42,7 +42,7 @@ The project is currently deployed on Vercel, and can be accessed at [this link](
 
 ### Overall completeness
 
-- Implemented all the requirements given in the task document, plus bonus ones (check the [Bonus Features](#bonus-features-and-accessibility) section for more details).
+- Implemented all the requirements given in the task document, plus bonus ones (check the [Bonus Features and Accessibility](#bonus-features-and-accessibility) section for more details).
 - Mobile-first responsive design.
 - Clean, modular codebase with reusable components.
 - Simulated API interactions with realistic delays and error handling.
@@ -51,14 +51,12 @@ The project is currently deployed on Vercel, and can be accessed at [this link](
 ### Chat UI
 
 - Chat message list, with different designs for user / AI.
-- Text input functional.
 - Scrollable chat history (includes an automatic scrolling down mechanism that takes effect when the user sends & receives a message).
 - Animated sidebar for chat session management.
 
 ### Message Handling
 
 - Messages stored and managed via React state.
-- Timestamps displayed for every message.
 - Markdown rendering for AI responses, including:
   - `` ` `` Code blocks
   - **Bold** / *italic* formatting
@@ -73,26 +71,19 @@ The project is currently deployed on Vercel, and can be accessed at [this link](
 ### Chat Persistence
 
 - Full chat history saved to `localStorage`.
-- History restored automatically on page refresh.
+- History restored automatically on page refresh, with a new chat session created for the user if the most recent session has already been used.
 
 ### Chat Sessions
 
-- Support for multiple conversations.
 - Easy switching between sessions by Sidebar.
 - You can rename chat sessions to your liking.
+- Sends user messages to a mock AI API, which responds with a simulated delay and a streaming response.
 
 ### Message Actions
-
-Each AI message supports:
 
 - Copy to clipboard (fully functional).
 - Regenerate response (simulated).
 - Like / Dislike (simulated).
-
-### API Integration
-
-- Sends user messages to a mock AI API.
-- Displays the AI response in the chat.
 
 ### Error Handling
 
@@ -103,8 +94,7 @@ Each AI message supports:
 ### UI/UX
 
 - Mock [Figma](https://www.figma.com/design/jIxHP4AxvGLOZSusqTYNpN/AI-Interface?m=auto&t=QJ3Bfjs8F4GLLXf3-1).
-- Fully responsive layout.
-- Basic accessibility support.
+- Fully responsive layout, with basic accesibility features.
 - Adapted design based on user feedback from both technical and non-technical users.
 
 ---
